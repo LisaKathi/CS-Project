@@ -5,6 +5,7 @@ st.title("Art Valuation App")
 st.header('CS Project by Group 2.2')
 df = pd.read_csv(r"C:\Users\ioles\Downloads\AppraiSet_complete_dataset.csv")
 st.write(df.head(10))
+###please don't edit anything before this line #####
 
 st.write("Displaying DataFrame:")
 st.dataframe(df)
