@@ -41,3 +41,28 @@ df.rename(columns=names_new_columns, inplace= True)
 
 st.write("With new columns")
 st.write(df)
+
+# Define dataframe Code isn't all complete 
+data = pd.read_csv(r"C:\Users\loren\Downloads\AppraiSet_complete_dataset.csv")
+
+# Function to filter data
+def filter_data(data, filter_value):
+    filtered_data = data[data["materials"].isin(filter_value)]
+    return filtered_data
+
+# Streamlit app
+st.title("Filter Data by Checkbox")
+
+# Display dataframe
+st.write(data)
+
+# Define filter options
+filter_options = ['oil on canvas', 'acrylic','embroidery','tempera','watercolor']
+
+# Display filter options
+filter_value = st.multiselect("Select materials to filter", filter_options)
+
+# Apply filter based on multiselect value
+if filter_value:
+    filtered_data = filter_data(data, filter_value)
+    st.write(filtered_data)
