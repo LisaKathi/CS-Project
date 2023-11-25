@@ -6,7 +6,7 @@ st.header('CS Project by Group 2.2')
 df = pd.read_csv(r"C:\Users\ioles\Downloads\AppraiSet_complete_dataset.csv")
 
 
-
+#hello world
 
 #SLIDER FOR YEAR OF WORK RANGE#
 ##### we need to convert year_of_work to numeric, because otherwise compares int with string####
