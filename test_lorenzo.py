@@ -141,16 +141,16 @@ selected_categories = st.multiselect("Select Material Category", filter_options.
 # Checkbox for showing more information
 # Information about categories
 categories = {
-    'Paints and Pigments': ['oil', 'acrylic', 'spray', 'pastel', 'tempera', 'watercolor', 'watercolour', 'pigment', 'color'],
-    'Metals and Sculpting Materials' : ['bronze', 'gold', 'patinated', 'wrought', 'alabaster', 'polished', 'copper', 'stainless', 'wood', 'cast', 'silver', 'steel', 'aluminum', 'walnut', 'plumbago', 'stone', 'corten', 'metallised', 'lead', 'burnished', 'brass', 'earthenware'],
-    'Printmaking and Graphic Arts': ['cprint', 'offset', 'charcoal', 'screenprint', 'letterpress', 'etching'],
-    'Drawing and Writing Tools': ['ballpoint', 'pen', 'signed', 'crayon', 'pencil', 'conte', 'marker', 'felttip'],
-    'Mixed Media and Miscellaneous': ['embroidery', 'synthetic', 'variable', 'mixed', 'ikb', 'paper', 'painted', 'polymer', 'glazed', 'alkyd', 'resin', 'polyuréthane', 'household', 'digital', 'book', 'fabric', 'gelatin', 'sump', 'vinyl', 'polyester', 'dye', 'offsetlithographin', 'monoprint', 'gypsum', 'printed', 'vegetable', 'archival', 'wool', 'digitally', 'enamel', 'monotype', 'cardboard', 'roll', 'woodcut', 'cement', 'lacquer', 'mirrored', 'oilstick', 'collage', 'pva', 'metal', 'bamboo', 'wires', 'wire', 'sand', 'epson', 'ektacolor', 'unframed', 'peacock', 'plastic', 'flashe', 'water', 'oxidation', 'porcelain', 'molave', 'handknitted', 'embossed', 'handembellished', 'polystone', 'silk', 'vacuumformed', 'cobblestones', 'feathers', 'diasecmounted', 'ukiyoe', 'giclee', 'giclée', 'handpainted', 'homemade', 'cotton', 'duratran', 'indian', 'varnished', 'handcut', 'fibreglass', 'vintage', 'humbrol'],
-    'Traditional and Specialized Techniques': ['silkscreen', 'encaustic', 'terracotta', 'leather', 'screen', 'lambda', 'glass'],
-    'Photography and Digital Art': ['ilfochrome', 'chromogenic', 'ink', 'cibachrome', 'photogram', 'inkjet', 'stencil', 'tar', 'photographic', 'epoxy', 'plaster'],
-    'Sculpting and Carving': ['graphite', 'wax', 'chalk'],
-    'Unconventional and Unique Techniques': ['language', 'led', 'electronic', 'neon', 'kinetic'],
-    'Other Specific Techniques or Materials': ['Other Specific Techniques or Materials: Any material that doesnt fit neatly into the above categories'],
+    'Paints and Pigments': ['This category contains artworks made of','oil', 'acrylic', 'spray', 'pastel', 'tempera', 'watercolor', 'watercolour', 'pigment', 'color'],
+    'Metals and Sculpting Materials' : ['This category contains artworks made of','bronze', 'gold', 'patinated', 'wrought', 'alabaster', 'polished', 'copper', 'stainless', 'wood', 'cast', 'silver', 'steel', 'aluminum', 'walnut', 'plumbago', 'stone', 'corten', 'metallised', 'lead', 'burnished', 'brass', 'earthenware'],
+    'Printmaking and Graphic Arts': ['This category contains artworks made of','cprint', 'offset', 'charcoal', 'screenprint', 'letterpress', 'etching'],
+    'Drawing and Writing Tools': ['This category contains artworks made of','ballpoint', 'pen', 'signed', 'crayon', 'pencil', 'conte', 'marker', 'felttip'],
+    'Mixed Media and Miscellaneous': ['This category contains artworks made of','embroidery', 'synthetic', 'variable', 'mixed', 'ikb', 'paper', 'painted', 'polymer', 'glazed', 'alkyd', 'resin', 'polyuréthane', 'household', 'digital', 'book', 'fabric', 'gelatin', 'sump', 'vinyl', 'polyester', 'dye', 'offsetlithographin', 'monoprint', 'gypsum', 'printed', 'vegetable', 'archival', 'wool', 'digitally', 'enamel', 'monotype', 'cardboard', 'roll', 'woodcut', 'cement', 'lacquer', 'mirrored', 'oilstick', 'collage', 'pva', 'metal', 'bamboo', 'wires', 'wire', 'sand', 'epson', 'ektacolor', 'unframed', 'peacock', 'plastic', 'flashe', 'water', 'oxidation', 'porcelain', 'molave', 'handknitted', 'embossed', 'handembellished', 'polystone', 'silk', 'vacuumformed', 'cobblestones', 'feathers', 'diasecmounted', 'ukiyoe', 'giclee', 'giclée', 'handpainted', 'homemade', 'cotton', 'duratran', 'indian', 'varnished', 'handcut', 'fibreglass', 'vintage', 'humbrol'],
+    'Traditional and Specialized Techniques': ['This category contains artworks made of','silkscreen', 'encaustic', 'terracotta', 'leather', 'screen', 'lambda', 'glass'],
+    'Photography and Digital Art': ['This category contains artworks made of','ilfochrome', 'chromogenic', 'ink', 'cibachrome', 'photogram', 'inkjet', 'stencil', 'tar', 'photographic', 'epoxy', 'plaster'],
+    'Sculpting and Carving': ['This category contains artworks made of','graphite', 'wax', 'chalk'],
+    'Unconventional and Unique Techniques': ['This category contains artworks made of','language', 'led', 'electronic', 'neon', 'kinetic'],
+    'Other Specific Techniques or Materials': ['This category contains artworks made of','Other Specific Techniques or Materials: Any material that doesnt fit neatly into the above categories']
 }
 # Checkbox for showing more information
 show_more_info = st.checkbox("Show More Information")
@@ -163,6 +163,8 @@ if show_more_info:
     # Display additional information for the selected categories
     for category_id in selected_info_categories:
         st.write(f"Additional Information for Category {category_id}:")
+        st.write(categories.get(category_id, "No information available"))
+
 
 
 # Map selected categories to their corresponding values
