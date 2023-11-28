@@ -4,18 +4,15 @@ import numpy as np
 
 st.title("Art Valuation App \U0001F3A8")
 st.header('CS Project by Group 2.2')
-df = pd.read_csv(r"C:\Users\loren\Downloads\AppraiSet_complete_dataset.csv")
+df = pd.read_csv(r"C:\Users\loren\OneDrive\Documents\5 Semester\CS\Groupe project\cleaned_tow.csv")
 
 
 #hello world
 
 # new columns name
-names_new_columns = {'artist_name':'Artist Name','year_artist_born':'Birth year','year_of_death':'Death Year','age':'Age','title_of_work': 'Title','materials':'Materials',
-                     'length:':'Length','width':'Width','height':'Height','area':'Area','measurement_2':'Measurement 2','length_2':'Length 2','width_2':'Width 2',
-                     'height_2':'Height 2','area_2':'Area 2','measurement_3':'Measurement 3', 'length_3':'Length 3', 'width_3':'Width 3','height_3':'Height 3',
-                     'area_3':'Area 3', 'unit_cm':'Unit in cm','year_of_work':'Creation Year','age_at_work':'Age of Artist at Creation','note':'Comment','lower_estimate':'Lower Estimate',
-                     'upper_estimate':'Upper Estimate','amount_sold':'Sales Amount','currency':'Currency','sold_T_or_F':'Sold T or F','lower_est_USD':'Lower est. USD',
-                     'upper_est_USD':'Upper est. USD','sold_in_USD':'Sales Amount in USD','posthumous_T_or_F_or_U':'Posthumous T or F or U'}
+names_new_columns = {'artist_name':'Artist Name','year_artist_born':'Birth year','age':'Age','length':'Length','width':'Width','title_of_work':'Title','height':'Height'
+                     ,'year_of_work':'Creation Year','age_at_work':'Age of Artist at Creation','lower_est_USD':'Lower est. USD','upper_est_USD':'Upper est. USD',
+                     'sold_in_USD':'Sales Amount in USD','Material_Category':'Material Category','act_area':'Act. Area','posthumous_combined':'Posthumous Combined'}
 df.rename(columns=names_new_columns, inplace= True)
 
 
@@ -47,7 +44,7 @@ st.markdown(f"Number of Artworks in Selected Range: **{num_artworks}**")
 st.header('Search for an artist by name')
 artist_name_input = st.text_input("Please enter an artist's name (or part of the name):")
 if artist_name_input:
-    filtered_df = filtered_df[filtered_df['artist_name'].str.contains(artist_name_input, case=False)]
+    filtered_df = filtered_df[filtered_df['Artist Name'].str.contains(artist_name_input, case=False)]
 
 # Show search result summary
 st.subheader("Results of your Search")
@@ -59,12 +56,12 @@ else:
 
 
 
-
+st.header('Filter for artworks by price')
 # checkbox to filter posthumous artworks
 posthumous_checkbox = st.checkbox("Filter Posthumous Artworks")
 
 # extract Sales Amount in USD column, remove unnecessary caracters, and convert to float
-sold_in_usd = df['Sales Amount in USD'].str.replace('$', '').str.replace(',', '').astype(float)
+sold_in_usd = df['Sales Amount in USD']
 
 # slider to filter based on sold_in_USD
 min_price, max_price = st.slider("Filter by Price Range", 
@@ -77,7 +74,7 @@ filtered_2_df = df.copy()
 
 if posthumous_checkbox:
     # only true is considered posthumous
-    filtered_2_df = filtered_2_df[filtered_2_df['Posthumous T or F or U'].isin(['TRUE'])]
+    filtered_2_df = filtered_2_df[filtered_2_df['Posthumous Combined'].isin([1])]
 
 filtered_2_df['Sales Amount in USD'] = sold_in_usd
 filtered_2_df = filtered_2_df[(filtered_2_df['Sales Amount in USD'] >= min_price) & (filtered_2_df['Sales Amount in USD'] <= max_price)]
@@ -85,3 +82,5 @@ filtered_2_df = filtered_2_df[(filtered_2_df['Sales Amount in USD'] >= min_price
 # Display the dataframe
 st.write("Filtered Artworks:")
 st.write(filtered_2_df)
+
+st.header('Filter for artworks by Material Category')
