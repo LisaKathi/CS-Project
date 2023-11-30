@@ -10,10 +10,7 @@ st.title("Art Valuation App \U0001F3A8")
 st.header('CS Project by Group 2.2')
 df = pd.read_csv(r"C:\Users\loren\OneDrive\Documents\5 Semester\CS\Groupe project\cleaned_tow.csv")
 
-
-#hello world
-
-# new columns name
+# new columns names
 names_new_columns = {'artist_name':'Artist Name','year_artist_born':'Birth year','age':'Age','length':'Length','width':'Width','title_of_work':'Title','height':'Height'
                      ,'year_of_work':'Creation Year','age_at_work':'Age of Artist at Creation','lower_est_USD':'Lower est. USD','upper_est_USD':'Upper est. USD',
                      'sold_in_USD':'Sales Amount in USD','Material_Category':'Material Category','act_area':'Act. Area','posthumous_combined':'Posthumous Combined'}
@@ -204,24 +201,28 @@ def load_model():
 data = load_data()
 model = load_model()
 
-
+data 
 
 # User input
 birth_year_input = st.number_input('year_artist_born', min_value=0, max_value=2023, step=1)
+age_input = st.number_input('age', min_value = 0, max_value = 120, step = 1)
 length_input = st.number_input('length', min_value=0.00, step= 0.001)
 width_input = st.number_input('width', min_value=0.00, step= 0.001)
 height_input = st.number_input('height', min_value=0.00, step=0.001)
-creation_year_input = st.number_input('year_of_work', min_value=1000, max_value=2023, step=1)
+creation_year_input = st.number_input('year_of_work', min_value=0, max_value=2023, step=1)
 age_at_creation_input = st.number_input('age_at_work', min_value=0, max_value=120, step=1)
 lower_est_usd_input = st.number_input('lower_est_USD', min_value=0.00, step=0.01)
 upper_est_usd_input = st.number_input('upper_est_USD', min_value=0.00, step=0.01)
-material_category_input = st.selectbox('Material_Category', filter_options)
+material_category_input = st.selectbox('Material_Category', filter_options.values()) #Here we must specify that it is the values, otherwise the code will take the keys
+act_area_input = length_input*width_input*height_input
 posthumous_combined_input = st.selectbox('posthumous_combined', [0, 1])
-artist_rank_input = st.number_input('arist_rank', min_value = 0 , step = 1)
+artist_rank_input = st.number_input('artist_rank', min_value = 0 , step = 1)
+
 
 # Combine user inputs into a DataFrame for prediction
 user_input_df = pd.DataFrame({
     'year_artist_born': [birth_year_input],
+    'age' : [age_input],
     'length': [length_input],
     'width': [width_input],
     'height': [height_input],
@@ -230,8 +231,9 @@ user_input_df = pd.DataFrame({
     'lower_est_USD': [lower_est_usd_input],
     'upper_est_USD': [upper_est_usd_input],
     'Material_Category': [material_category_input],
+    'act_area' : [act_area_input],
     'posthumous_combined': [posthumous_combined_input],
-    'arist_rank' : [artist_rank_input]
+    'artist_rank' : [artist_rank_input],
 })
 
 input_prediction = model.predict(user_input_df)
