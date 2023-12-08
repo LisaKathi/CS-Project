@@ -271,6 +271,18 @@ def page2():
     data = load_data()
     model = load_model()
 
+    filter_options = {
+        'Paints and Pigments': 1,
+        'Metals and Sculpting Materials': 2,
+        'Printmaking and Graphic Arts': 3,
+        'Drawing and Writing Tools': 4,
+        'Mixed Media and Miscellaneous': 5,
+        'Traditional and Specialized Techniques': 6,
+        'Photography and Digital Art': 7,
+        'Sculpting and Carving': 8,
+        'Unconventional and Unique Techniques': 9,
+        'Other Specific Techniques or Materials': 10 }
+
     st.write('Enter the following details about your artwork please')
     # User inputs of his artwork 
     birth_year_input = st.number_input('Birth year', min_value=0, max_value=2023, step=1)
