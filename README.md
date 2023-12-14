@@ -9,7 +9,7 @@ Source: https://data.mendeley.com/datasets/2nfvz8g27c/1
 - AppraiSet_testing_dataset.csv: the orginial testing dataset, not actively used -> we wanted to clean the data ourselves to better fit our project needs
 - AppraiSet_training_dataset.csv: the original training dataset, not actively used -> we wanted to clean the data ourselves to better fit our project needs
 
-2) Data Clearning and Machine Learning Model
+2) Data Clearning and the Machine Learning Model
 - 1_Notebook.ipynb: majority of the data cleaning including material category
 - artist_name.ipynb: final data cleaning including arist_rank and the development of our ML model
 - Artiste_name(streamlitteam).py: integration of the machine learning model into streamlit
