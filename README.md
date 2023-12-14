@@ -1,7 +1,5 @@
 # CS-Project
-The group project for the Computer Science course at the University of St. Gallen.
-
-Our final product can be found in myappfinal.py
+The group project for the Computer Science course at the University of St. Gallen. Our final product can be found in myappfinal.py
 
 Overview of the Notebooks / Python files & Dataframes:
 
