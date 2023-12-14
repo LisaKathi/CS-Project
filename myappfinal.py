@@ -595,7 +595,7 @@ def page3():
                     title = found_artwork.get('title', 'Title not available') #return info 
                     date = found_artwork.get('date', 'Date not available')
                     medium = found_artwork.get('medium', 'Medium not available')
-                    artist_name = found_artwork.get('_embedded', {}).get('artists', [{}])[0].get('name', 'Vincent Van Gogh')
+                    artist_name = found_artwork.get('_embedded', {}).get('artists', [{}])[0].get('name', 'Artist Name Not Found')
                     category = found_artwork.get('category', 'Category not available')            
 
                     st.subheader(f"Artwork Details for '{user_query}':") #formatting with markdown
