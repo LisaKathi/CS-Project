@@ -17,7 +17,7 @@ Source: https://data.mendeley.com/datasets/2nfvz8g27c/1
 - cleaned_tow.csv: Our cleaned dataset + column title of work 
 
 
-3) First attemps at Streamlit
+3) First Attemps at Streamlit
 - myapp.py : first attempt at making a streamlit app, not used in final project
 - test_björn.py: testing streamlit functions, not used in final project
 - test_lorenzo.py: testing streamlit functions, not used in final project
@@ -30,7 +30,7 @@ Source: https://data.mendeley.com/datasets/2nfvz8g27c/1
 - artsy_google_api.py : final version of the two apis, used in final project
 
 
-5) Creating a final product
+5) Creating a Final Product
 - Streamlit_DataDiscovery_Prediction_combined.py: First attempt at combining prediction and data discovery with ML model, and combined API 
 - myappfinal.py: Our final streamlit product, including the Prediction, Data Discovery, API usage and Visualization pages plus the final design
 
